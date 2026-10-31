@@ -3,8 +3,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Coming Soon</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Coming Soon - Bio Shines Life Sciences</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -17,15 +17,41 @@
       padding: 0;
     }
 
-    body {
-      min-height: 100vh;
-      min-height: 100dvh;
-      width: 100%;
+    /* Fixed background container - fixes iOS Safari & Android mobile background bugs */
+    .bg-layer {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      height: 100dvh;
       background-image: url('background.jpg');
       background-size: cover;
       background-position: center center;
       background-repeat: no-repeat;
-      background-attachment: fixed;
+      z-index: -2;
+      transform: translateZ(0);
+    }
+
+    /* Subtle atmospheric overlay for enhanced depth & contrast */
+    .overlay-layer {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      height: 100dvh;
+      background: radial-gradient(circle at center, rgba(255, 255, 255, 0.15) 0%, rgba(20, 24, 30, 0.25) 100%);
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    body {
+      min-height: 100vh;
+      min-height: 100dvh;
+      width: 100%;
+      margin: 0;
+      padding: env(safe-area-inset-top, 20px) env(safe-area-inset-right, 16px) env(safe-area-inset-bottom, 24px) env(safe-area-inset-left, 16px);
       font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
       display: flex;
       flex-direction: column;
@@ -33,23 +59,13 @@
       align-items: center;
       position: relative;
       overflow-x: hidden;
+      overflow-y: auto;
       color: #1e242b;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
-    /* Subtle atmospheric overlay to enhance contrast and depth */
-    body::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: radial-gradient(circle at center, rgba(255, 255, 255, 0.15) 0%, rgba(20, 24, 30, 0.25) 100%);
-      pointer-events: none;
-      z-index: 1;
-    }
-
-    /* Page structure */
+    /* Top spacer for vertical balance */
     .top-spacer {
       flex: 1;
       width: 100%;
@@ -57,26 +73,30 @@
       z-index: 2;
     }
 
+    /* Center: Brand Logo & Tagline */
     .center-section {
       z-index: 2;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      padding: 10px 20px;
-      animation: fadeInScale 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      padding: 10px 16px;
+      width: 100%;
+      max-width: 600px;
       text-align: center;
+      animation: fadeInScale 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
 
     .logo {
       max-width: 440px;
       max-height: 350px;
-      width: 85vw;
+      width: 82vw;
       height: auto;
       object-fit: contain;
       filter: drop-shadow(0 14px 32px rgba(0, 0, 0, 0.16));
       transition: transform 0.4s ease;
       user-select: none;
+      -webkit-user-drag: none;
     }
 
     .logo:hover {
@@ -85,21 +105,24 @@
 
     .tagline {
       margin-top: 16px;
-      font-size: 1.25rem;
+      font-size: clamp(0.95rem, 3.2vw, 1.25rem);
       font-weight: 500;
       color: #222831;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.06em;
+      line-height: 1.4;
       text-shadow: 0 1px 10px rgba(255, 255, 255, 0.85), 0 2px 5px rgba(0, 0, 0, 0.06);
       font-family: 'Outfit', sans-serif;
+      padding: 0 12px;
     }
 
+    /* Bottom Section */
     .bottom-section {
       width: 100%;
       display: flex;
       flex-direction: column;
       align-items: center;
       margin-top: 34px;
-      padding: 0 20px;
+      padding: 0 16px;
       z-index: 2;
       animation: fadeInUp 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
@@ -113,14 +136,18 @@
 
     /* Coming Soon Title */
     .coming-soon-wrapper {
-      margin-bottom: 18px;
+      margin-bottom: 16px;
       display: flex;
       align-items: center;
-      gap: 14px;
+      justify-content: center;
+      gap: clamp(8px, 2.5vw, 14px);
+      width: 100%;
+      max-width: 480px;
     }
 
     .coming-soon-line {
-      width: 36px;
+      flex: 1;
+      max-width: 36px;
       height: 2px;
       background: linear-gradient(90deg, transparent, rgba(40, 44, 52, 0.6));
     }
@@ -131,30 +158,33 @@
 
     .coming-soon-text {
       font-family: 'Montserrat', sans-serif;
-      font-size: 1.15rem;
+      font-size: clamp(0.85rem, 2.8vw, 1.15rem);
       font-weight: 700;
-      letter-spacing: 0.32em;
+      letter-spacing: clamp(0.16em, 0.8vw, 0.32em);
       text-transform: uppercase;
       color: #1a1e24;
       text-shadow: 0 1px 8px rgba(255, 255, 255, 0.6), 0 2px 4px rgba(0, 0, 0, 0.08);
-      position: relative;
+      white-space: nowrap;
     }
 
     /* Countdown Card */
     .countdown-card {
-      background: rgba(255, 255, 255, 0.65);
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
+      background: rgba(255, 255, 255, 0.72);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
       border: 1px solid rgba(255, 255, 255, 0.85);
-      border-radius: 24px;
-      padding: 22px 32px;
+      border-radius: clamp(16px, 4vw, 24px);
+      padding: clamp(12px, 3vw, 22px) clamp(12px, 3.5vw, 32px);
       box-shadow:
         0 20px 45px rgba(0, 0, 0, 0.12),
         0 4px 12px rgba(0, 0, 0, 0.06),
         inset 0 1px 0 rgba(255, 255, 255, 0.9);
       display: flex;
       align-items: center;
-      gap: 16px;
+      justify-content: center;
+      gap: clamp(4px, 1.5vw, 14px);
+      width: 100%;
+      max-width: 520px;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
@@ -166,44 +196,48 @@
     }
 
     .time-unit-box {
+      flex: 1 1 0;
+      min-width: 0;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      background: rgba(255, 255, 255, 0.55);
-      border: 1px solid rgba(255, 255, 255, 0.9);
-      border-radius: 16px;
-      min-width: 86px;
-      padding: 14px 12px 10px 12px;
+      background: rgba(255, 255, 255, 0.65);
+      border: 1px solid rgba(255, 255, 255, 0.95);
+      border-radius: clamp(10px, 2.5vw, 16px);
+      padding: clamp(8px, 2vw, 14px) clamp(4px, 1.2vw, 12px);
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
     }
 
     .time-number {
       font-family: 'Montserrat', sans-serif;
-      font-size: 2.35rem;
+      font-size: clamp(1.35rem, 5.2vw, 2.35rem);
       font-weight: 700;
-      line-height: 1;
+      line-height: 1.05;
       color: #171b20;
       font-variant-numeric: tabular-nums;
       letter-spacing: -0.02em;
+      user-select: none;
     }
 
     .time-label {
       font-family: 'Outfit', sans-serif;
-      font-size: 0.68rem;
+      font-size: clamp(0.52rem, 1.8vw, 0.68rem);
       font-weight: 600;
-      letter-spacing: 0.18em;
+      letter-spacing: clamp(0.08em, 0.3vw, 0.18em);
       text-transform: uppercase;
-      color: #646e7b;
-      margin-top: 6px;
+      color: #5d6774;
+      margin-top: clamp(2px, 0.8vw, 6px);
+      white-space: nowrap;
     }
 
     .separator {
-      font-size: 1.8rem;
+      font-size: clamp(1.1rem, 4vw, 1.8rem);
       font-weight: 600;
       color: rgba(30, 36, 44, 0.45);
-      margin-top: -12px;
+      margin-top: -6px;
       user-select: none;
+      flex-shrink: 0;
     }
 
     /* Animations */
@@ -231,104 +265,103 @@
       }
     }
 
-    /* Responsive adjustments */
+    /* Responsive adjustments for phones (<= 600px) */
     @media (max-width: 600px) {
       .logo {
-        max-width: 300px;
-        max-height: 250px;
-      }
-
-      .tagline {
-        font-size: 1.05rem;
-        letter-spacing: 0.05em;
-        margin-top: 12px;
-        padding: 0 10px;
-      }
-
-      .coming-soon-text {
-        font-size: 0.95rem;
-        letter-spacing: 0.26em;
-      }
-
-      .coming-soon-line {
-        width: 20px;
-      }
-
-      .countdown-card {
-        padding: 14px 16px;
-        border-radius: 18px;
-        gap: 8px;
-      }
-
-      .time-unit-box {
-        min-width: 62px;
-        padding: 10px 6px 8px 6px;
-        border-radius: 12px;
-      }
-
-      .time-number {
-        font-size: 1.65rem;
-      }
-
-      .time-label {
-        font-size: 0.58rem;
-        letter-spacing: 0.12em;
-        margin-top: 4px;
-      }
-
-      .separator {
-        font-size: 1.25rem;
-        margin-top: -8px;
+        max-width: 290px;
+        max-height: 230px;
+        width: 80vw;
       }
 
       .bottom-section {
         margin-top: 22px;
-        padding: 0 16px;
+        padding: 0 12px;
+      }
+
+      .top-spacer {
+        min-height: 15px;
       }
 
       .bottom-spacer {
-        flex: 1;
-        min-height: 25px;
+        flex: 1.1;
+        min-height: 30px;
       }
     }
 
-    @media (max-height: 650px) {
-      .top-spacer {
-        min-height: 10px;
+    /* Extra small mobile screens (<= 360px, e.g. iPhone SE / Galaxy A) */
+    @media (max-width: 360px) {
+      .logo {
+        max-width: 230px;
       }
 
-      .logo {
-        max-height: 160px;
+      .countdown-card {
+        padding: 10px 8px;
+        gap: 3px;
+        border-radius: 14px;
+      }
+
+      .time-unit-box {
+        padding: 6px 2px 5px 2px;
+        border-radius: 8px;
       }
 
       .tagline {
-        font-size: 0.95rem;
-        margin-top: 8px;
+        font-size: 0.9rem;
+      }
+    }
+
+    /* Landscape mode / short viewport screens */
+    @media (max-height: 600px) {
+      body {
+        justify-content: flex-start;
+        padding-top: 15px;
+        padding-bottom: 25px;
       }
 
-      .bottom-section {
-        margin-top: 16px;
+      .top-spacer {
+        display: none;
       }
 
       .bottom-spacer {
-        min-height: 15px;
+        min-height: 20px;
+        flex: 0;
+      }
+
+      .logo {
+        max-height: 120px;
+      }
+
+      .tagline {
+        font-size: 0.9rem;
+        margin-top: 6px;
+      }
+
+      .bottom-section {
+        margin-top: 14px;
+      }
+
+      .coming-soon-wrapper {
+        margin-bottom: 8px;
       }
     }
   </style>
 </head>
 
 <body>
+  <!-- Fixed background layers for 100% smooth mobile performance -->
+  <div class="bg-layer"></div>
+  <div class="overlay-layer"></div>
 
-  <!-- Top spacer to achieve perfect vertical balance for centered logo -->
+  <!-- Top spacer for vertical balance -->
   <div class="top-spacer"></div>
 
   <!-- Center: Brand Logo & Tagline -->
   <main class="center-section">
-    <img src="logo.png" alt="Logo" class="logo" id="brand-logo">
+    <img src="logo.png" alt="Bio Shines Life Sciences Logo" class="logo" id="brand-logo">
     <p class="tagline">Advancing Life, Inspiring Better Health</p>
   </main>
 
-  <!-- Bottom: Coming Soon & 3-Month Countdown Box -->
+  <!-- Coming Soon & 3-Month Countdown Box -->
   <footer class="bottom-section">
     <div class="coming-soon-wrapper">
       <span class="coming-soon-line left"></span>
