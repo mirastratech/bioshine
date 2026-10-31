@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coming Soon</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Outfit:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      min-height: 100dvh;
+      width: 100%;
+      background-image: url('background.jpg');
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      overflow-x: hidden;
+      color: #1e242b;
+    }
+
+    /* Subtle atmospheric overlay to enhance contrast and depth */
+    body::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at center, rgba(255, 255, 255, 0.15) 0%, rgba(20, 24, 30, 0.25) 100%);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* Page structure */
+    .top-spacer {
+      flex: 1;
+      width: 100%;
+      min-height: 20px;
+      z-index: 2;
+    }
+
+    .center-section {
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 10px 20px;
+      animation: fadeInScale 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      text-align: center;
+    }
+
+    .logo {
+      max-width: 440px;
+      max-height: 350px;
+      width: 85vw;
+      height: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 14px 32px rgba(0, 0, 0, 0.16));
+      transition: transform 0.4s ease;
+      user-select: none;
+    }
+
+    .logo:hover {
+      transform: scale(1.03);
+    }
+
+    .tagline {
+      margin-top: 16px;
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: #222831;
+      letter-spacing: 0.08em;
+      text-shadow: 0 1px 10px rgba(255, 255, 255, 0.85), 0 2px 5px rgba(0, 0, 0, 0.06);
+      font-family: 'Outfit', sans-serif;
+    }
+
+    .bottom-section {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 34px;
+      padding: 0 20px;
+      z-index: 2;
+      animation: fadeInUp 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .bottom-spacer {
+      flex: 1.35;
+      width: 100%;
+      min-height: 40px;
+      z-index: 2;
+    }
+
+    /* Coming Soon Title */
+    .coming-soon-wrapper {
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .coming-soon-line {
+      width: 36px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, rgba(40, 44, 52, 0.6));
+    }
+
+    .coming-soon-line.right {
+      background: linear-gradient(90deg, rgba(40, 44, 52, 0.6), transparent);
+    }
+
+    .coming-soon-text {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: #1a1e24;
+      text-shadow: 0 1px 8px rgba(255, 255, 255, 0.6), 0 2px 4px rgba(0, 0, 0, 0.08);
+      position: relative;
+    }
+
+    /* Countdown Card */
+    .countdown-card {
+      background: rgba(255, 255, 255, 0.65);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid rgba(255, 255, 255, 0.85);
+      border-radius: 24px;
+      padding: 22px 32px;
+      box-shadow:
+        0 20px 45px rgba(0, 0, 0, 0.12),
+        0 4px 12px rgba(0, 0, 0, 0.06),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9);
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .countdown-card:hover {
+      box-shadow:
+        0 24px 50px rgba(0, 0, 0, 0.16),
+        0 6px 16px rgba(0, 0, 0, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    }
+
+    .time-unit-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.55);
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      border-radius: 16px;
+      min-width: 86px;
+      padding: 14px 12px 10px 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    }
+
+    .time-number {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.35rem;
+      font-weight: 700;
+      line-height: 1;
+      color: #171b20;
+      font-variant-numeric: tabular-nums;
+      letter-spacing: -0.02em;
+    }
+
+    .time-label {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #646e7b;
+      margin-top: 6px;
+    }
+
+    .separator {
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: rgba(30, 36, 44, 0.45);
+      margin-top: -12px;
+      user-select: none;
+    }
+
+    /* Animations */
+    @keyframes fadeInScale {
+      0% {
+        opacity: 0;
+        transform: scale(0.92);
+      }
+
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(24px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 600px) {
+      .logo {
+        max-width: 300px;
+        max-height: 250px;
+      }
+
+      .tagline {
+        font-size: 1.05rem;
+        letter-spacing: 0.05em;
+        margin-top: 12px;
+        padding: 0 10px;
+      }
+
+      .coming-soon-text {
+        font-size: 0.95rem;
+        letter-spacing: 0.26em;
+      }
+
+      .coming-soon-line {
+        width: 20px;
+      }
+
+      .countdown-card {
+        padding: 14px 16px;
+        border-radius: 18px;
+        gap: 8px;
+      }
+
+      .time-unit-box {
+        min-width: 62px;
+        padding: 10px 6px 8px 6px;
+        border-radius: 12px;
+      }
+
+      .time-number {
+        font-size: 1.65rem;
+      }
+
+      .time-label {
+        font-size: 0.58rem;
+        letter-spacing: 0.12em;
+        margin-top: 4px;
+      }
+
+      .separator {
+        font-size: 1.25rem;
+        margin-top: -8px;
+      }
+
+      .bottom-section {
+        margin-top: 22px;
+        padding: 0 16px;
+      }
+
+      .bottom-spacer {
+        flex: 1;
+        min-height: 25px;
+      }
+    }
+
+    @media (max-height: 650px) {
+      .top-spacer {
+        min-height: 10px;
+      }
+
+      .logo {
+        max-height: 160px;
+      }
+
+      .tagline {
+        font-size: 0.95rem;
+        margin-top: 8px;
+      }
+
+      .bottom-section {
+        margin-top: 16px;
+      }
+
+      .bottom-spacer {
+        min-height: 15px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Top spacer to achieve perfect vertical balance for centered logo -->
+  <div class="top-spacer"></div>
+
+  <!-- Center: Brand Logo & Tagline -->
+  <main class="center-section">
+    <img src="logo.png" alt="Logo" class="logo" id="brand-logo">
+    <p class="tagline">Advancing Life, Inspiring Better Health</p>
+  </main>
+
+  <!-- Bottom: Coming Soon & 3-Month Countdown Box -->
+  <footer class="bottom-section">
+    <div class="coming-soon-wrapper">
+      <span class="coming-soon-line left"></span>
+      <h2 class="coming-soon-text">Coming Soon</h2>
+      <span class="coming-soon-line right"></span>
+    </div>
+
+    <div class="countdown-card" id="countdown-card">
+      <div class="time-unit-box">
+        <span class="time-number" id="days">90</span>
+        <span class="time-label">Days</span>
+      </div>
+      <span class="separator">:</span>
+      <div class="time-unit-box">
+        <span class="time-number" id="hours">00</span>
+        <span class="time-label">Hours</span>
+      </div>
+      <span class="separator">:</span>
+      <div class="time-unit-box">
+        <span class="time-number" id="minutes">00</span>
+        <span class="time-label">Minutes</span>
+      </div>
+      <span class="separator">:</span>
+      <div class="time-unit-box">
+        <span class="time-number" id="seconds">00</span>
+        <span class="time-label">Seconds</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bottom spacer for safe clearance from bottom background elements -->
+  <div class="bottom-spacer"></div>
+
+  <script>
+    // 3-Month Countdown Timer Logic
+    (function initCountdown() {
+      const STORAGE_KEY = 'launch_target_date_v1';
+      const THREE_MONTHS_MS = 90 * 24 * 60 * 60 * 1000; // 90 days in milliseconds
+      let targetTime;
+
+      try {
+        const stored = localStorage.getItem(STORAGE_KEY);
+        if (stored) {
+          const parsed = parseInt(stored, 10);
+          if (!isNaN(parsed) && parsed > Date.now()) {
+            targetTime = parsed;
+          }
+        }
+      } catch (e) {
+        // Handle localStorage restrictions if loaded as file://
+      }
+
+      if (!targetTime) {
+        targetTime = Date.now() + THREE_MONTHS_MS;
+        try {
+          localStorage.setItem(STORAGE_KEY, targetTime.toString());
+        } catch (e) { }
+      }
+
+      const daysEl = document.getElementById('days');
+      const hoursEl = document.getElementById('hours');
+      const minutesEl = document.getElementById('minutes');
+      const secondsEl = document.getElementById('seconds');
+
+      function padZero(num) {
+        return num < 10 ? '0' + num : num.toString();
+      }
+
+      function update() {
+        const now = Date.now();
+        const difference = targetTime - now;
+
+        if (difference <= 0) {
+          daysEl.textContent = '00';
+          hoursEl.textContent = '00';
+          minutesEl.textContent = '00';
+          secondsEl.textContent = '00';
+          return;
+        }
+
+        const totalSeconds = Math.floor(difference / 1000);
+        const days = Math.floor(totalSeconds / (3600 * 24));
+        const hours = Math.floor((totalSeconds % (3600 * 24)) / 3600);
+        const minutes = Math.floor((totalSeconds % 3600) / 60);
+        const seconds = totalSeconds % 60;
+
+        daysEl.textContent = padZero(days);
+        hoursEl.textContent = padZero(hours);
+        minutesEl.textContent = padZero(minutes);
+        secondsEl.textContent = padZero(seconds);
+      }
+
+      update();
+      setInterval(update, 1000);
+    })();
+  </script>
+</body>
+
+</html>
