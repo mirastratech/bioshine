@@ -4,11 +4,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Coming Soon - Bio Shines Life Sciences</title>
+  <title>Bio Shines Life Sciences</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Outfit:wght@300;400;500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Knewave&family=Montserrat:wght@400;500;600;700;800&family=Outfit:wght@300;400;500;600;700&display=swap"
     rel="stylesheet">
   <style>
     * {
@@ -25,7 +25,7 @@
       width: 100vw;
       height: 100vh;
       height: 100dvh;
-      background-image: url('background.jpg');
+      background-image: url('bg1.png');
       background-size: cover;
       background-position: center center;
       background-repeat: no-repeat;
@@ -67,13 +67,13 @@
 
     /* Top spacer for vertical balance */
     .top-spacer {
-      flex: 1;
+      flex: 0.6;
       width: 100%;
-      min-height: 20px;
+      min-height: 15px;
       z-index: 2;
     }
 
-    /* Center: Brand Logo & Tagline */
+    /* Center: Brand Logo, Tagline & Company Info */
     .center-section {
       z-index: 2;
       display: flex;
@@ -82,15 +82,15 @@
       align-items: center;
       padding: 10px 16px;
       width: 100%;
-      max-width: 600px;
+      max-width: 820px;
       text-align: center;
       animation: fadeInScale 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
 
     .logo {
-      max-width: 440px;
-      max-height: 350px;
-      width: 82vw;
+      max-width: 520px;
+      max-height: 410px;
+      width: 88vw;
       height: auto;
       object-fit: contain;
       filter: drop-shadow(0 14px 32px rgba(0, 0, 0, 0.16));
@@ -104,8 +104,8 @@
     }
 
     .tagline {
-      margin-top: 16px;
-      font-size: clamp(0.95rem, 3.2vw, 1.25rem);
+      margin-top: 18px;
+      font-size: clamp(1.08rem, 3.5vw, 1.45rem);
       font-weight: 500;
       color: #222831;
       letter-spacing: 0.06em;
@@ -113,6 +113,203 @@
       text-shadow: 0 1px 10px rgba(255, 255, 255, 0.85), 0 2px 5px rgba(0, 0, 0, 0.06);
       font-family: 'Outfit', sans-serif;
       padding: 0 12px;
+    }
+
+    /* Glowing Neon Mission Card */
+    .neon-mission-card {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: clamp(16px, 3.2vw, 26px);
+      width: 100%;
+      max-width: 800px;
+      margin-top: 26px;
+      padding: clamp(18px, 3.4vw, 24px) clamp(20px, 4vw, 32px);
+      background: rgba(10, 18, 42, 0.72);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-radius: clamp(18px, 3vw, 24px);
+      border: 2px solid #00d2ff;
+      box-shadow:
+        0 0 20px rgba(0, 210, 255, 0.45),
+        0 0 42px rgba(236, 72, 153, 0.35),
+        inset 0 0 16px rgba(0, 210, 255, 0.15),
+        0 16px 36px rgba(0, 0, 0, 0.4);
+      text-align: left;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .neon-mission-card:hover {
+      box-shadow:
+        0 0 26px rgba(0, 210, 255, 0.65),
+        0 0 52px rgba(236, 72, 153, 0.48),
+        inset 0 0 20px rgba(0, 210, 255, 0.22),
+        0 20px 42px rgba(0, 0, 0, 0.48);
+    }
+
+    .dna-badge {
+      flex-shrink: 0;
+      width: clamp(58px, 13vw, 76px);
+      height: clamp(58px, 13vw, 76px);
+      border-radius: 50%;
+      background: radial-gradient(circle at center, #701a75 0%, #3b0764 70%, #0f172a 100%);
+      border: 2.5px solid #e879f9;
+      box-shadow:
+        0 0 16px #d946ef,
+        inset 0 0 12px rgba(168, 85, 247, 0.6),
+        0 0 8px #00d2ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px;
+    }
+
+    .dna-svg {
+      width: 100%;
+      height: 100%;
+      filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.9));
+    }
+
+    .mission-text-box {
+      flex: 1;
+    }
+
+    .mission-text {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(1.05rem, 2.5vw, 1.28rem);
+      font-weight: 400;
+      line-height: 1.55;
+      color: #f1f5f9;
+      letter-spacing: 0.01em;
+      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
+    }
+
+    .pink-highlight {
+      color: #ff2e93;
+      font-weight: 700;
+      text-shadow: 0 0 14px rgba(255, 46, 147, 0.7), 0 0 25px rgba(255, 46, 147, 0.4);
+    }
+
+    .neon-sparkle {
+      position: absolute;
+      bottom: -11px;
+      right: 22px;
+      width: 26px;
+      height: 26px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      filter: drop-shadow(0 0 8px #ffffff) drop-shadow(0 0 16px #00d2ff);
+      animation: sparkleGlow 2.5s ease-in-out infinite alternate;
+      pointer-events: none;
+    }
+
+    .sparkle-svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    @keyframes sparkleGlow {
+      0% {
+        transform: scale(0.9) rotate(0deg);
+        opacity: 0.85;
+      }
+
+      100% {
+        transform: scale(1.18) rotate(18deg);
+        opacity: 1;
+      }
+    }
+
+    /* Dynamic Paint Brush Slogan Banner */
+    .brush-banner-wrapper {
+      margin-top: 30px;
+      margin-bottom: 12px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+    }
+
+    .brush-banner {
+      position: relative;
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 14px clamp(32px, 7vw, 64px) 16px clamp(32px, 7vw, 64px);
+      transform: rotate(-4.2deg);
+      transition: transform 0.3s ease;
+    }
+
+    .brush-banner:hover {
+      transform: rotate(-2.8deg) scale(1.02);
+    }
+
+    .brush-stroke-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      pointer-events: none;
+      filter: drop-shadow(0 10px 22px rgba(0, 0, 0, 0.42));
+    }
+
+    .brush-svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .brush-text-content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      user-select: none;
+    }
+
+    .hero-heading {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      text-transform: uppercase;
+      font-style: italic;
+    }
+
+    .hero-highlight {
+      font-family: 'Knewave', cursive;
+      text-transform: uppercase;
+      color: #FFD21F;
+    }
+
+    .brush-line-1 {
+      font-size: clamp(1.3rem, 3.8vw, 2.25rem);
+      color: #ffffff;
+      letter-spacing: 0.03em;
+      line-height: 1.15;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.45);
+      white-space: nowrap;
+    }
+
+    .brush-line-2 {
+      font-size: clamp(2.1rem, 6.4vw, 3.65rem);
+      color: #FFD21F;
+      letter-spacing: 0.04em;
+      line-height: 1;
+      margin-top: 3px;
+      -webkit-text-stroke: 1.5px #111111;
+      text-shadow:
+        2.5px 3px 0 #111111,
+        -1px -1px 0 #111111,
+        1px -1px 0 #111111,
+        -1px 1px 0 #111111,
+        0 4px 10px rgba(0, 0, 0, 0.4);
+      white-space: nowrap;
     }
 
     /* Bottom Section */
@@ -128,9 +325,9 @@
     }
 
     .bottom-spacer {
-      flex: 1.35;
+      flex: 0.8;
       width: 100%;
-      min-height: 40px;
+      min-height: 30px;
       z-index: 2;
     }
 
@@ -142,12 +339,12 @@
       justify-content: center;
       gap: clamp(8px, 2.5vw, 14px);
       width: 100%;
-      max-width: 480px;
+      max-width: 520px;
     }
 
     .coming-soon-line {
       flex: 1;
-      max-width: 36px;
+      max-width: 44px;
       height: 2px;
       background: linear-gradient(90deg, transparent, rgba(40, 44, 52, 0.6));
     }
@@ -158,9 +355,9 @@
 
     .coming-soon-text {
       font-family: 'Montserrat', sans-serif;
-      font-size: clamp(0.85rem, 2.8vw, 1.15rem);
+      font-size: clamp(1rem, 3.2vw, 1.35rem);
       font-weight: 700;
-      letter-spacing: clamp(0.16em, 0.8vw, 0.32em);
+      letter-spacing: clamp(0.18em, 0.9vw, 0.34em);
       text-transform: uppercase;
       color: #1a1e24;
       text-shadow: 0 1px 8px rgba(255, 255, 255, 0.6), 0 2px 4px rgba(0, 0, 0, 0.08);
@@ -173,8 +370,8 @@
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
       border: 1px solid rgba(255, 255, 255, 0.85);
-      border-radius: clamp(16px, 4vw, 24px);
-      padding: clamp(12px, 3vw, 22px) clamp(12px, 3.5vw, 32px);
+      border-radius: clamp(18px, 4vw, 26px);
+      padding: clamp(14px, 3.5vw, 24px) clamp(14px, 4vw, 36px);
       box-shadow:
         0 20px 45px rgba(0, 0, 0, 0.12),
         0 4px 12px rgba(0, 0, 0, 0.06),
@@ -184,7 +381,7 @@
       justify-content: center;
       gap: clamp(4px, 1.5vw, 14px);
       width: 100%;
-      max-width: 520px;
+      max-width: 580px;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
@@ -204,14 +401,14 @@
       justify-content: center;
       background: rgba(255, 255, 255, 0.65);
       border: 1px solid rgba(255, 255, 255, 0.95);
-      border-radius: clamp(10px, 2.5vw, 16px);
-      padding: clamp(8px, 2vw, 14px) clamp(4px, 1.2vw, 12px);
+      border-radius: clamp(12px, 2.5vw, 18px);
+      padding: clamp(10px, 2.2vw, 16px) clamp(6px, 1.4vw, 14px);
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
     }
 
     .time-number {
       font-family: 'Montserrat', sans-serif;
-      font-size: clamp(1.35rem, 5.2vw, 2.35rem);
+      font-size: clamp(1.55rem, 5.8vw, 2.75rem);
       font-weight: 700;
       line-height: 1.05;
       color: #171b20;
@@ -222,17 +419,17 @@
 
     .time-label {
       font-family: 'Outfit', sans-serif;
-      font-size: clamp(0.52rem, 1.8vw, 0.68rem);
+      font-size: clamp(0.62rem, 2vw, 0.78rem);
       font-weight: 600;
-      letter-spacing: clamp(0.08em, 0.3vw, 0.18em);
+      letter-spacing: clamp(0.1em, 0.35vw, 0.2em);
       text-transform: uppercase;
       color: #5d6774;
-      margin-top: clamp(2px, 0.8vw, 6px);
+      margin-top: clamp(3px, 0.9vw, 7px);
       white-space: nowrap;
     }
 
     .separator {
-      font-size: clamp(1.1rem, 4vw, 1.8rem);
+      font-size: clamp(1.3rem, 4.5vw, 2.1rem);
       font-weight: 600;
       color: rgba(30, 36, 44, 0.45);
       margin-top: -6px;
@@ -265,16 +462,58 @@
       }
     }
 
+    /* Mobile view background (<= 768px) */
+    @media (max-width: 768px) {
+      .bg-layer {
+        background-image: url('mobile-bg.png');
+      }
+    }
+
     /* Responsive adjustments for phones (<= 600px) */
     @media (max-width: 600px) {
       .logo {
-        max-width: 290px;
-        max-height: 230px;
-        width: 80vw;
+        max-width: 340px;
+        max-height: 270px;
+        width: 84vw;
+      }
+
+      .tagline {
+        font-size: 1.15rem;
+        margin-top: 14px;
+      }
+
+      .neon-mission-card {
+        margin-top: 20px;
+        padding: 16px 14px;
+        gap: 14px;
+        border-radius: 18px;
+      }
+
+      .dna-badge {
+        width: 52px;
+        height: 52px;
+        padding: 9px;
+      }
+
+      .brush-banner-wrapper {
+        margin-top: 24px;
+        margin-bottom: 8px;
+      }
+
+      .brush-banner {
+        padding: 12px 20px 16px 20px;
+      }
+
+      .brush-line-1 {
+        font-size: clamp(1.1rem, 4.6vw, 1.55rem);
+      }
+
+      .brush-line-2 {
+        font-size: clamp(1.65rem, 7.2vw, 2.35rem);
       }
 
       .bottom-section {
-        margin-top: 22px;
+        margin-top: 24px;
         padding: 0 12px;
       }
 
@@ -291,22 +530,45 @@
     /* Extra small mobile screens (<= 360px, e.g. iPhone SE / Galaxy A) */
     @media (max-width: 360px) {
       .logo {
-        max-width: 230px;
+        max-width: 260px;
+      }
+
+      .neon-mission-card {
+        padding: 14px 10px;
+        gap: 10px;
+      }
+
+      .dna-badge {
+        width: 44px;
+        height: 44px;
+        padding: 7px;
+      }
+
+      .brush-banner {
+        padding: 10px 14px 14px 14px;
+      }
+
+      .brush-line-1 {
+        font-size: 1.05rem;
+      }
+
+      .brush-line-2 {
+        font-size: 1.5rem;
       }
 
       .countdown-card {
-        padding: 10px 8px;
+        padding: 12px 8px;
         gap: 3px;
         border-radius: 14px;
       }
 
       .time-unit-box {
-        padding: 6px 2px 5px 2px;
+        padding: 8px 3px 6px 3px;
         border-radius: 8px;
       }
 
       .tagline {
-        font-size: 0.9rem;
+        font-size: 1rem;
       }
     }
 
@@ -355,20 +617,91 @@
   <!-- Top spacer for vertical balance -->
   <div class="top-spacer"></div>
 
-  <!-- Center: Brand Logo & Tagline -->
+  <!-- Center: Brand Logo, Tagline & Company Info -->
   <main class="center-section">
-    <img src="logo.png" alt="Bio Shines Life Sciences Logo" class="logo" id="brand-logo">
+    <img src="logo1.png" alt="Bio Shines Life Sciences Logo" class="logo" id="brand-logo">
     <p class="tagline">Advancing Life, Inspiring Better Health</p>
-  </main>
 
-  <!-- Coming Soon & 3-Month Countdown Box -->
-  <footer class="bottom-section">
-    <div class="coming-soon-wrapper">
-      <span class="coming-soon-line left"></span>
-      <h2 class="coming-soon-text">Coming Soon</h2>
-      <span class="coming-soon-line right"></span>
+    <!-- Glowing Neon Mission Card -->
+    <div class="neon-mission-card">
+      <div class="neon-sparkle">
+        <svg viewBox="0 0 24 24" class="sparkle-svg">
+          <path d="M12 0 L14.5 9.5 L24 12 L14.5 14.5 L12 24 L9.5 14.5 L0 12 L9.5 9.5 Z" fill="#ffffff" />
+        </svg>
+      </div>
+
+      <div class="dna-badge">
+        <svg viewBox="0 0 48 48" class="dna-svg">
+          <path d="M15 8 C15 18, 33 26, 33 36 C33 41, 26 44, 24 44" stroke="#ffffff" stroke-width="2.6"
+            stroke-linecap="round" fill="none" />
+          <path d="M33 8 C33 18, 15 26, 15 36 C15 41, 22 44, 24 44" stroke="#ffffff" stroke-width="2.6"
+            stroke-linecap="round" fill="none" />
+          <line x1="17.5" y1="12" x2="30.5" y2="12" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" />
+          <line x1="20" y1="17" x2="28" y2="17" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" />
+          <circle cx="24" cy="22" r="1.5" fill="#ffffff" />
+          <line x1="20" y1="27" x2="28" y2="27" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" />
+          <line x1="17.5" y1="32" x2="30.5" y2="32" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" />
+          <line x1="19" y1="38" x2="29" y2="38" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" />
+        </svg>
+      </div>
+
+      <div class="mission-text-box">
+        <p class="mission-text">
+          Innovation is the cornerstone of our mission at Bioshines lifesciences, we’re dedicated to pioneering new
+          therapies for <span class="pink-highlight">better patient outcomes.</span>
+        </p>
+      </div>
     </div>
 
+    <!-- Brush Slogan Banner -->
+    <div class="brush-banner-wrapper">
+      <div class="brush-banner">
+        <div class="brush-stroke-bg">
+          <svg class="brush-svg" viewBox="0 0 760 145" preserveAspectRatio="none">
+            <defs>
+              <linearGradient id="brushBlueGrad" x1="0%" y1="20%" x2="100%" y2="80%">
+                <stop offset="0%" stop-color="#0062ff" />
+                <stop offset="50%" stop-color="#1452e6" />
+                <stop offset="100%" stop-color="#0e3eb8" />
+              </linearGradient>
+            </defs>
+            <!-- Detached paint drops on the far left -->
+            <circle cx="16" cy="68" r="5.5" fill="#0062ff" />
+            <circle cx="28" cy="88" r="3.5" fill="#1452e6" />
+            <!-- Main organic paint stroke with bristle spikes -->
+            <path d="M 42 62 
+                     C 36 78, 44 98, 56 112 
+                     C 72 120, 110 126, 170 128 
+                     C 280 131, 460 130, 610 123 
+                     C 660 120, 700 114, 725 106 
+                     L 735 98 
+                     L 758 104 
+                     L 742 86 
+                     L 756 74 
+                     L 738 64 
+                     L 750 48 
+                     L 728 42 
+                     L 740 26 
+                     L 712 28 
+                     C 660 25, 560 21, 440 22 
+                     C 310 23, 190 25, 110 32 
+                     C 75 35, 52 45, 42 62 Z" fill="url(#brushBlueGrad)" />
+            <!-- Dry bristle flick cutouts -->
+            <path d="M 724 38 Q 746 34 734 46 Z" fill="#1452e6" />
+            <path d="M 732 68 Q 752 64 738 78 Z" fill="#0e3eb8" />
+            <circle cx="746" cy="92" r="2.5" fill="#0e3eb8" />
+          </svg>
+        </div>
+        <div class="brush-text-content">
+          <div class="hero-heading brush-line-1">NOT STARTING OVER —</div>
+          <div class="hero-highlight brush-line-2">STARTING STRONGER!</div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Coming Soon & 3-Month Countdown Box
+  <footer class="bottom-section">
     <div class="countdown-card" id="countdown-card">
       <div class="time-unit-box">
         <span class="time-number" id="days">90</span>
@@ -390,7 +723,7 @@
         <span class="time-label">Seconds</span>
       </div>
     </div>
-  </footer>
+  </footer> -->
 
   <!-- Bottom spacer for safe clearance from bottom background elements -->
   <div class="bottom-spacer"></div>
