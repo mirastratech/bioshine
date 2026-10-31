@@ -115,7 +115,7 @@
       -webkit-backdrop-filter: blur(16px);
       border: 1.5px solid rgba(125, 211, 252, 0.38);
       border-radius: 9999px;
-      box-shadow: 
+      box-shadow:
         0 8px 24px rgba(0, 0, 0, 0.3),
         0 0 20px rgba(56, 189, 248, 0.22),
         inset 0 1px 0 rgba(255, 255, 255, 0.35);
@@ -125,7 +125,7 @@
     .tagline-badge:hover {
       transform: scale(1.02);
       border-color: rgba(125, 211, 252, 0.65);
-      box-shadow: 
+      box-shadow:
         0 10px 30px rgba(0, 0, 0, 0.35),
         0 0 30px rgba(56, 189, 248, 0.38),
         inset 0 1px 0 rgba(255, 255, 255, 0.5);
@@ -133,7 +133,7 @@
 
     .tagline {
       font-family: 'Montserrat', sans-serif;
-      font-size: clamp(1.2rem, 3.8vw, 1.7rem);
+      font-size: clamp(1.35rem, 4.2vw, 1.95rem);
       font-weight: 700;
       letter-spacing: 0.05em;
       line-height: 1.35;
@@ -142,23 +142,19 @@
       flex-wrap: wrap;
       align-items: center;
       justify-content: center;
-      gap: 6px 10px;
+      gap: 6px 12px;
       margin: 0;
       padding: 0;
+      color: #ffffff;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.45), 0 0 16px rgba(255, 255, 255, 0.35);
     }
 
-    .tagline-life {
-      background: linear-gradient(135deg, #ffffff 15%, #bae6fd 60%, #38bdf8 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      filter: drop-shadow(0 0 12px rgba(56, 189, 248, 0.45));
-    }
-
+    .tagline-life,
     .tagline-health {
-      background: linear-gradient(135deg, #fffbeb 10%, #fde047 55%, #f59e0b 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      filter: drop-shadow(0 0 14px rgba(245, 158, 11, 0.5));
+      color: #ffffff;
+      background: none;
+      -webkit-text-fill-color: #ffffff;
+      filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.4));
     }
 
     /* Glowing Neon Mission Card */
@@ -525,11 +521,11 @@
 
       .tagline-badge {
         margin-top: 14px;
-        padding: 8px 18px;
+        padding: 9px 20px;
       }
 
       .tagline {
-        font-size: clamp(1.05rem, 4.2vw, 1.35rem);
+        font-size: clamp(1.18rem, 4.6vw, 1.5rem);
         gap: 4px 8px;
       }
 
@@ -619,11 +615,11 @@
       }
 
       .tagline-badge {
-        padding: 6px 14px;
+        padding: 7px 16px;
       }
 
       .tagline {
-        font-size: 1.02rem;
+        font-size: 1.12rem;
       }
     }
 
@@ -676,12 +672,10 @@
   <main class="center-section">
     <img src="logo1.png" alt="Bio Shines Life Sciences Logo" class="logo" id="brand-logo">
     <!-- Brand Tagline Badge -->
-    <div class="tagline-badge">
-      <h2 class="tagline">
-        <span class="tagline-life">Advancing Life,</span>
-        <span class="tagline-health">Inspiring Better Health</span>
-      </h2>
-    </div>
+    <h2 class="tagline">
+      <span class="tagline-life">Advancing Life,</span>
+      <span class="tagline-health">Inspiring Better Health</span>
+    </h2>
 
     <!-- Glowing Neon Mission Card -->
     <div class="neon-mission-card">
@@ -709,7 +703,7 @@
       <div class="mission-text-box">
         <p class="mission-text">
           Innovation is the cornerstone of our mission at Bioshines lifesciences, we’re dedicated to pioneering new
-          therapies for <span class="pink-highlight">better patient outcomes.</span>
+          therapies for better patient outcomes.</span>
         </p>
       </div>
     </div>
@@ -754,8 +748,8 @@
           </svg>
         </div>
         <div class="brush-text-content">
-          <div class="hero-heading brush-line-1">NOT STARTING OVER —</div>
-          <div class="hero-highlight brush-line-2">STARTING STRONGER!</div>
+          <div class="hero-heading brush-line-1">BUILT ON RESILIENCE</div>
+          <div class="hero-highlight brush-line-2">DRIVEN BY EXCELLENCE</div>
         </div>
       </div>
     </div>
